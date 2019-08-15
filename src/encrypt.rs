@@ -8,7 +8,7 @@ use crypto::{
     sha2,
 };
 
-use crate::{Error, Result};
+use crate::{Error, Result, CONFIG};
 
 pub fn encode_ekey(
     id: u64,
@@ -64,4 +64,12 @@ pub fn encode_ekey(
     }
 
     Ok(base64::encode_config(&final_result, base64::URL_SAFE).replace("=", ""))
+}
+
+pub fn encode_ekey_util(id: u64, sub_key: &str) -> Result<String> {
+    let config = CONFIG.read().unwrap();
+    if config.secret_key.is_none() {
+        return Err(Error::SecretKeyNotFound.into())
+    }
+    encode_ekey(id, sub_key, config.secret_key.as_ref().unwrap(), config.secret_key_bytes.as_ref())
 }
