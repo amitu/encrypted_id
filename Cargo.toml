@@ -6,10 +6,12 @@ edition = "2018"
 
 [workspace]
 members = [
-    "encry_derive"
+    "encry_derive",
+    "examples"
 ]
 
 [dependencies]
+lazy_static = "~1.2.0"
 
 [dependencies.base64]
 version = "~0.10.1"
