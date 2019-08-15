@@ -7,10 +7,9 @@ extern crate quote;
 
 use proc_macro::TokenStream;
 use syn::{
-    DeriveInput, ItemStruct,
-    parse::{Parse, ParseStream, Result}, LitStr, Token,
+    parse::{Parse, ParseStream, Result},
+    DeriveInput, ItemStruct, LitStr, Token,
 };
-
 
 struct PathArgs {
     table_name: String,
@@ -25,10 +24,11 @@ impl Parse for PathArgs {
         input.parse::<keyword::table_name>()?;
         input.parse::<Token![=]>()?;
         let path: LitStr = input.parse()?;
-        Ok(PathArgs{table_name: path.value()})
+        Ok(PathArgs {
+            table_name: path.value(),
+        })
     }
 }
-
 
 #[proc_macro_attribute]
 pub fn endecrypt(meta: TokenStream, input: TokenStream) -> TokenStream {

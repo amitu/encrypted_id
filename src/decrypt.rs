@@ -86,11 +86,15 @@ pub fn decode_ekey(
     Ok(id)
 }
 
-
 pub fn decode_ekey_util(ekey: &str, sub_key: &str) -> Result<u64> {
     let config = CONFIG.read().unwrap();
     if config.secret_key.is_none() {
-        return Err(Error::SecretKeyNotFound.into())
+        return Err(Error::SecretKeyNotFound.into());
     }
-    decode_ekey(ekey, sub_key, config.secret_key.as_ref().unwrap(), config.secret_key_bytes.as_ref())
+    decode_ekey(
+        ekey,
+        sub_key,
+        config.secret_key.as_ref().unwrap(),
+        config.secret_key_bytes.as_ref(),
+    )
 }

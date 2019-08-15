@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate lazy_static;
-use std::sync::RwLock;
 use failure::Fail;
+use std::sync::RwLock;
 mod decrypt;
 mod encrypt;
 pub mod prelude;
@@ -18,7 +18,7 @@ pub struct Config {
     secret_key_bytes: Vec<u8>,
 }
 
-lazy_static!{
+lazy_static! {
     pub(crate) static ref CONFIG: RwLock<Config> = RwLock::new(Config::default());
 }
 

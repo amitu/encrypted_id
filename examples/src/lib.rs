@@ -4,13 +4,12 @@ extern crate encrypted_id;
 
 use encrypted_id::prelude::*;
 
-#[endecrypt(table_name="table_name")]
+#[endecrypt(table_name = "table_name")]
 #[derive(Debug, Default)]
 pub struct EncyDemo {
     pub id: u64,
     pub name: String,
 }
-
 
 #[cfg(test)]
 mod tests {
