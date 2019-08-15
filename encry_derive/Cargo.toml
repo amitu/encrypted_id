@@ -1,0 +1,16 @@
+[package]
+name = "encry_derive"
+version = "0.1.0"
+authors = ["AbrarNitk <abrar.nitk@gmail.com>"]
+edition = "2018"
+
+[lib]
+proc_macro = true
+
+[dependencies]
+quote = "0.6"
+proc-macro2 = "1.0.0"
+
+[dependencies.syn]
+version = "0.15.42"
+features = ["full"]

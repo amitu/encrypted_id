@@ -10,21 +10,6 @@ use crypto::{
 
 use crate::{Error, Result};
 
-static
-
-trait Ency {
-    fn ekey(id) -> Result<String> {
-        encode_ekey(id, sub_key)
-    }
-    fn decode_ekey(&str) -> Result<String> {}
-}
-
-
-#[derive(Ency, table="")]
-struct Abc {
-
-}
-
 pub fn encode_ekey(
     id: u64,
     sub_key: &str,
